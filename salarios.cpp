@@ -6,6 +6,7 @@ Salarios::Salarios(QWidget *parent)
     , ui(new Ui::Salarios)
 {
     ui->setupUi(this);
+    m_controlador=new Controlador();
 }
 
 Salarios::~Salarios()
