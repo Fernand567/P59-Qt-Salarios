@@ -79,7 +79,7 @@ void Salarios::guardar()
                                                           QDir::home().absolutePath(),
                                                           "Archivos de texto (*.txt)");
 
-    qDebug() <<nombreArchivo;
+
     //Crear un objet QFile
     QFile archivo(nombreArchivo);
     if(archivo.open(QFile::WriteOnly | QFile::Truncate)){
@@ -97,6 +97,33 @@ void Salarios::guardar()
     archivo.close();
 }
 
+void Salarios::abrir()
+{
+    QString  nombreArchivo = QFileDialog::getOpenFileName(this,
+                                                          "Abrir datos",
+                                                          QDir::home().absolutePath(),
+                                                          "Archivos de texto (*.slr)");
+
+
+    //Crear un objet QFile
+    QFile archivo(nombreArchivo);
+    if(archivo.open(QFile::ReadOnly)){
+        //Crear un strem de texto
+        QTextStream entrada(&archivo);
+         QString datos=entrada.readAll();
+        //Enviar los datos de datos del resultado a la salida
+         ui->outResultado->clear();
+         ui->outResultado->setPlainText(datos);
+        //Mostrar 5 segundos que todo esta bien
+        ui->statusbar->showMessage("Datos leidos desde " + nombreArchivo,5000);
+    }else{
+        QMessageBox::warning(this,
+                             "Abrir datos",
+                             "No se pudo abrir el archivo");
+    }
+    archivo.close();
+}
+
 void Salarios::on_actionNuevo_triggered()
 {
 
@@ -108,5 +135,17 @@ void Salarios::on_actionNuevo_triggered()
 void Salarios::on_actionGuardar_triggered()
 {
     guardar();
+}
+
+
+void Salarios::on_actionCalcular_triggered()
+{
+    calcular();
+}
+
+
+void Salarios::on_actionAbrir_triggered()
+{
+    abrir();
 }
 

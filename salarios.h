@@ -23,11 +23,13 @@ public:
 private slots:
     void on_cmdCalcular_clicked();
 
-    void on_actionNuevo_triggered();
-
-
-
     void on_actionGuardar_triggered();
+
+    void on_actionCalcular_triggered();
+
+    void on_actionAbrir_triggered();
+
+    void on_actionNuevo_triggered();
 
 private:
     Ui::Salarios *ui;
@@ -35,5 +37,6 @@ private:
     void limpiar();
     void calcular();
     void guardar();
+    void abrir();
 };
 #endif // SALARIOS_H
