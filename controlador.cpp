@@ -47,6 +47,10 @@ bool Controlador::calcularSalario()
     double descuento = salarioBruto * IESS / 100;
     // Calculo del salario neto (a recibir)
     double salarioNeto = salarioBruto - descuento;
+    // Calculo de salario bruto total
+    salarioBrutototal=salarioBrutototal+salarioBruto;
+    salarioNetototal=salarioNetototal+salarioNeto;
+    totaliees=totaliees+descuento;
     // Establecer valores al objeto
     m_obrero->setSalarioBruto(salarioBruto);
     m_obrero->setDescuento(descuento);
@@ -58,4 +62,34 @@ bool Controlador::calcularSalario()
 Obrero *Controlador::obrero() const
 {
     return m_obrero;
+}
+
+double Controlador::getSalarioNetototal() const
+{
+    return salarioNetototal;
+}
+
+double Controlador::getTotaliees() const
+{
+    return totaliees;
+}
+
+double Controlador::getSalarioBrutototal() const
+{
+    return salarioBrutototal;
+}
+
+void Controlador::setSalarioBrutototal(double newSalarioBrutototal)
+{
+    salarioBrutototal = newSalarioBrutototal;
+}
+
+void Controlador::setSalarioNetototal(double newSalarioNetototal)
+{
+    salarioNetototal = newSalarioNetototal;
+}
+
+void Controlador::setTotaliees(double newTotaliees)
+{
+    totaliees = newTotaliees;
 }

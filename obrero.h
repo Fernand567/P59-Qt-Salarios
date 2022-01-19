@@ -35,6 +35,7 @@ public:
 
     QString toString();
 
+
 signals:
 
 private:
@@ -46,6 +47,7 @@ private:
     double m_descuento;
 
     QString jornada2String();
+
 
 };
 

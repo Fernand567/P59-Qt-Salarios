@@ -21,10 +21,26 @@ public:
     bool calcularSalario();
     Obrero *obrero() const;
 
+
+    double getSalarioNetototal() const;
+
+    double getTotaliees() const;
+
+    double getSalarioBrutototal() const;
+
+    void setSalarioBrutototal(double newSalarioBrutototal);
+
+    void setSalarioNetototal(double newSalarioNetototal);
+
+    void setTotaliees(double newTotaliees);
+
 signals:
 
 private:
     Obrero *m_obrero;
+    double salarioBrutototal=0;
+    double salarioNetototal=0;
+    double totaliees=0;
 
 };
 
